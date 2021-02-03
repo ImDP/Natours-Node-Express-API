@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Full Stack Coursework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImDP/Natours-Node-Express-API.git"
+  },
+  "author": "Duncan Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImDP/Natours-Node-Express-API/issues"
+  },
+  "homepage": "https://github.com/ImDP/Natours-Node-Express-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
