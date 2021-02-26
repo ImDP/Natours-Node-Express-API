@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const Tour = require('../models/tourModel');
 
 /*
@@ -48,6 +49,7 @@ exports.getAllTours = (req, res) => {
 exports.getTour = (req, res) => {
   // eslint-disable-next-line no-console
   console.log(req.params);
+  // eslint-disable-next-line no-unused-vars
   const id = req.params.id * 1;
   /*
   const tour = tours.find((el) => el.id === id);
