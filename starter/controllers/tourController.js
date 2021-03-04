@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+const { findById } = require('../models/tourModel');
 const Tour = require('../models/tourModel');
 
 /*
@@ -36,32 +37,52 @@ exports.checkBody = (req, res, next) => {
 };
 */
 
-exports.getAllTours = (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log(req.requestTime);
-  res.status(200).json({
-    status: 'success',
-    //results: tours.length,
-    //data: {
-    // tours,
-    //},
-  });
+exports.getAllTours = async (req, res) => {
+  try {
+    const tours = await Tour.find();
+
+    res.status(200).json({
+      status: 'success',
+      results: tours.length,
+      data: {
+        tours,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
 };
 
-exports.getTour = (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log(req.params);
-  // eslint-disable-next-line no-unused-vars
-  const id = req.params.id * 1;
-  /*
+exports.getTour = async (req, res) => {
+  try {
+    const tour = await Tour.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        tour,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
+/*
   const tour = tours.find((el) => el.id === id);
   res.status(200).json({
     status: 'success',
     data: {
       tour,
     },
-  }); */
-};
+  }); 
+};*/
 
 exports.createTour = async (req, res) => {
   try {
