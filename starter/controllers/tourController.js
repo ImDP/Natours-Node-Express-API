@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-const { findById } = require('../models/tourModel');
+//const { query } = require('express');
+//const { findById } = require('../models/tourModel');
 const Tour = require('../models/tourModel');
 
 /*
@@ -39,8 +40,17 @@ exports.checkBody = (req, res, next) => {
 
 exports.getAllTours = async (req, res) => {
   try {
-    const tours = await Tour.find();
+    //BUILD QUERY
+    const queryObj = { ...req.query };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach(el => delete queryObj[el]);
 
+    const query = Tour.find(queryObj);
+
+    //EXECUTE QUERY
+    const tours = await query;
+
+    //SEND RESPONSE
     res.status(200).json({
       status: 'success',
       results: tours.length,
