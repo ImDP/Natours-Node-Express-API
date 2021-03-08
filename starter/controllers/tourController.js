@@ -3,6 +3,14 @@
 //const { findById } = require('../models/tourModel');
 const Tour = require('../models/tourModel');
 
+//created router "top-5-cheap" in tourRoutes, added logic here for query
+exports.aliasTopTours = async (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = '-ratingsAverage, price';
+  req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
+  next();
+};
+
 /*
 //This is for testing json data
 const tours = JSON.parse(
