@@ -77,7 +77,7 @@ exports.getAllTours = async (req, res) => {
     //page=2&limit=10 1-10 Page 1, 11-20 Page 2, 21-30 Page 3 etc.
     query = query.skip(skip).limit(limit);
 
-    //Throws error if the number pf pages requested is >= than number of pages that exist
+    //Throws error if the number of pages requested is > than number of pages that exist
     if (req.query.page) {
       const numTours = await Tour.countDocuments();
       if (skip >= numTours) throw new Error('This page does not exist');
