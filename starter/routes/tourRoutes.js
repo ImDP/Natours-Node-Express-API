@@ -11,6 +11,7 @@ router //alias route for http://127.0.0.1:3000/api/v1/tours/top-5-cheap, logic i
   .get(tourController.aliasTopTours, tourController.getAllTours);
 
 router.route('/tour-stats').get(tourController.getTourStats);
+router.route('/monthly-plan/:year').get(tourController.getMonthlyPlan);
 
 router
   .route('/')
