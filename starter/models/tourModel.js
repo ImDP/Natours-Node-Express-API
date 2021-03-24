@@ -98,7 +98,9 @@ tourSchema.pre(/^find/, function (next) {
 });
 
 tourSchema.post(/^find/, function (docs, next) {
+  // eslint-disable-next-line no-console
   console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+  // eslint-disable-next-line no-console
   console.log(docs);
   next();
 });
