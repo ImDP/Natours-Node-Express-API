@@ -97,11 +97,19 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
+tourSchema.post(/^find/, (docs, next) => {
   // eslint-disable-next-line no-console
-  console.log(`Query took ${Date.now() - this.start} milliseconds!`);
+  //console.log(`Query took ${Date.now() - this.start} milliseconds!`);
   // eslint-disable-next-line no-console
   console.log(docs);
+  next();
+});
+
+//Aggregation Middleware
+tourSchema.pre('aggregate', function (next) {
+  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+  // eslint-disable-next-line no-console
+  console.log(this.pipeline());
   next();
 });
 
