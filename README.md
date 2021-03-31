@@ -9,7 +9,7 @@ Installation:
 To run the project on your own, check the dotenv file for proper configuration.
 
 Support:
-Feel free to contact me duncan@dinegigs.com or twitter @___imdp___ 
+Feel free to contact me duncan@dinegigs.com or twitter @ ___imdp___ 
 
 Roadmap:
 This project is currently not complete, but I am actively adding to it every week.
